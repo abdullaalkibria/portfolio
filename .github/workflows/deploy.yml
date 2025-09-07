@@ -19,15 +19,43 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # Detect project directory (root or nested)
+      - name: Detect project directory
+        id: vars
+        shell: bash
+        run: |
+          if [ -f package.json ]; then
+            echo "dir=." >> "$GITHUB_OUTPUT"
+          else
+            dir=$(git ls-files | grep -m1 'package.json' | xargs dirname)
+            echo "dir=$dir" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Project dir: ${{ steps.vars.outputs.dir }}"
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-      - run: npm install
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
+          cache: npm
+          cache-dependency-path: ${{ steps.vars.outputs.dir }}/package-lock.json
+
+      - name: Install deps
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+        working-directory: ${{ steps.vars.outputs.dir }}
+
+      - name: Build
+        run: npm run build
+        working-directory: ${{ steps.vars.outputs.dir }}
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ${{ steps.vars.outputs.dir }}/dist
 
   deploy:
     needs: build
