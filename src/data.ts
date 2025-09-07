@@ -62,18 +62,18 @@ export const SKILLS: Record<string, string[]> = {
 }
 
 export const AWARDS = [
-  { title: 'Champion — Line Follower Robot', org: 'Techtron 2025, University of Asia Pacific', date: '25 Apr 2025' },
-  { title: '1st Runner‑up — Line Follower Robot', org: 'Bitfest‑2025, KUET', date: '04 Jan 2025' },
-  { title: 'Champion — Line Follower Robot', org: '11th GSC National Scientist Mania‑2024', date: '23 Nov 2024' },
-  { title: '1st Runner‑Up — Maze Solver Robot', org: 'Techfest, IIT Bombay Bangladesh Zonal 2024', date: '25 Oct 2024' },
-  { title: 'Champion — Line Follower Robot', org: '6th JUSC National Science Festival‑2024', date: '21 Sep 2024' },
-  { title: '2nd Runner‑up — Advance Line Follower', org: 'DUET Techfest 2023', date: '14 Jul 2023' },
-  { title: '1st Runner‑up — Smart Water Vehicle', org: 'IDPC 2023 (Project Exhibition)', date: '26 Feb 2023' }
+  { title: 'Champion @ Line Follower Robot', org: 'Techtron 2025, University of Asia Pacific', date: '25 Apr 2025' },
+  { title: '1st Runner‑up @ Line Follower Robot', org: 'Bitfest‑2025, KUET', date: '04 Jan 2025' },
+  { title: 'Champion @ Line Follower Robot', org: '11th GSC National Scientist Mania‑2024', date: '23 Nov 2024' },
+  { title: '1st Runner‑Up @ Maze Solver Robot', org: 'Techfest, IIT Bombay Bangladesh Zonal 2024', date: '25 Oct 2024' },
+  { title: 'Champion @ Line Follower Robot', org: '6th JUSC National Science Festival‑2024', date: '21 Sep 2024' },
+  { title: '2nd Runner‑up @ Advance Line Follower', org: 'DUET Techfest 2023', date: '14 Jul 2023' },
+  { title: '1st Runner‑up @ Smart Water Vehicle', org: 'IDPC 2023 (Project Exhibition)', date: '26 Feb 2023' }
 ]
 
 export const LEADERSHIP = [
-  'Vice President — DUET Robotics Club',
-  'Co‑Leader — DUET Mars Rover Squad, DUET Robotics Club',
-  'Former General Secretary — DUET Robotics Club',
-  'Former Additional Network & Communication Secretary — DUET Computer Society'
+  'Vice President of DUET Robotics Club',
+  'Co‑Leader of DUET Mars Rover Squad, DUET Robotics Club',
+  'Former General Secretary of DUET Robotics Club',
+  'Former Additional Network & Communication Secretary of DUET Computer Society'
 ]
