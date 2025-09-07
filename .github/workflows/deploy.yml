@@ -21,32 +21,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show repo root (debug)
-        run: |
-          pwd
-          ls -la
-
-      - name: Setup Node
+      - name: Setup Node (no caching — no lockfile needed)
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
-      - name: Install deps (ci if lockfile; else install)
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+      - name: Install deps
+        run: npm install
 
-      - name: Build site
+      - name: Build
         run: npm run build
-
-      - name: Show dist (debug)
-        run: |
-          echo "---- dist contents ----"
-          ls -la dist || true
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -63,6 +47,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4
